@@ -14,12 +14,23 @@ description: >-
 
 ```mermaid
 flowchart TD
-    Phase1["1. 要件定義 (Requirements)"] --> Phase2["2. 仕様作成 (Specification)"]
+    Phase0["0. 環境初期化 (Bootstrap)"] --> Phase1["1. 要件定義 (Requirements)"]
+    Phase1 --> Phase2["2. 仕様作成 (Specification)"]
     Phase2 --> Phase3["3. アーキテクチャ設計 (Architecture & Design)"]
     Phase3 --> Phase4["4. 段階的実装 (Implementation)"]
     Phase4 --> Phase5["5. テスト・品質検証 (Testing & Quality)"]
     Phase5 --> Phase6["6. デプロイ・運用 (Deployment & Ops)"]
 ```
+
+---
+
+## 自動環境初期化 (Bootstrap)
+
+開発フローを開始する際、AI は以下を自動的に確認・実行します。
+1. `docs/` ディレクトリが存在しない場合、プロジェクトルートに作成する。
+2. `.agents/templates/` 内に定義されている標準テンプレートを参照し、必要な初期ファイルが未存在であれば `docs/` 配下に展開・コピーする。
+   - `.agents/templates/pending_issues.md` → `docs/pending_issues.md` （申し送り・課題管理表）
+   - フェーズ進行に伴い、`.agents/templates/` 内の各テンプレート（`requirements.md`, `specifications.md`, `design.md` など）を元に `docs/` 配下に成果物ドキュメントを生成する。
 
 ---
 
