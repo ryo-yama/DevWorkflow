@@ -1,0 +1,7 @@
+# Obsidian のワークスペース（開いているタブなどの状態）を除外
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace
+
+# グラフビューの細かな設定変更による差分の除外
+.obsidian/graph.json
